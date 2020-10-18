@@ -3,7 +3,9 @@
     $id = $_SESSION['id'];
 
     $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
-    $query = "SELECT max(t.date) date, t.value, t.credit FROM clientpersone r, entry t WHERE r.id = $id and t.debit = r.account and t.type = 2";
+    $query = "SELECT max(t.date) date, t.value, t.credit 
+                FROM clientpersone r, entry t 
+               WHERE r.id = $id and t.debit = r.account and t.type = 2";
     $table_date = "";
     $table_value = "";
     $table_credit = "";

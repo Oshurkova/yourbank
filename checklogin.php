@@ -2,7 +2,6 @@
     session_start();
     $login = $_POST['login'];
     $password = $_POST['password'];
-    echo $username;
     $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
     $query = "SELECT id, login, password, type FROM users WHERE login = $login";
     $table_id = "";
