@@ -8,19 +8,19 @@
     <link rel="shortcut icon" href="assets/images/logo1.png" type="image/x-icon">
   </head>
   <body>
-    <h3 class="text-muted" style="line-height: 36px; text-align: center;">Login page</h3>
+    <h3 class="text-muted" style="line-height: 36px; text-align: center;">Страница авторизации</h3>
       <div style="text-align: center;" class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
           <form action="checklogin.php" method="post">
             <div class="form-group">
-              <label>Login</label>
+              <label>Логин</label>
               <input type="text" name="login" class="form-control" required="required">
             </div>
             <div class="form-group">
-              <label>Password</label>
+              <label>Пароль</label>
               <input type="password" name="password" class="form-control" required="required">
             </div>
-            <button class="btn btn-primary">Log in</button>           
+            <button class="btn btn-primary">Войти</button>           
           </form>
         </div>
       </div>
@@ -29,3 +29,6 @@
     </footer>
   </body>
 </html>
+<?php
+    print_r($_SESSION);
+?>

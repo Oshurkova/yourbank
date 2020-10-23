@@ -1,7 +1,9 @@
 <?php
     session_start();
     $id = $_SESSION['id'];
-
+    if (!$id) {
+      header("location: login.php");
+    }
     $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
     $query = "SELECT max(t.date) date, t.value, t.credit FROM clientpersone r, entry t WHERE r.id = $id and t.debit = r.account and t.type = 1";
     $table_date = "";

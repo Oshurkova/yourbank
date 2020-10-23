@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    $id = $_SESSION['id'];
+    if (!$id) {
+      header("location: login.php");
+    } 
+?>
 <!DOCTYPE html>
 <html amp >
 <head>
@@ -46,7 +53,7 @@
           </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
-        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="index.html">Выйти</a></div>
+        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="logout.php">Выйти</a></div>
         <!-- SHOW BUTTON END -->
       </div>
   </amp-sidebar>
@@ -80,7 +87,7 @@
           </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
-        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="index.html">Выйти</a></div>
+        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="index.php">Выйти</a></div>
         <!-- SHOW BUTTON END -->
       </div>
       <!-- COLLAPSED MENU END -->
@@ -105,7 +112,7 @@
     <div class="container mbr-px-5">
         <div class="mbr-row mbr-jc-c">
             <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-3 md-pb">
-                <h3 class="mbr-section-title mbr-fonts-style align-left mbr-bold mbr-white mbr-pt-1 mbr-pb-2 display-5">Надежность</h3>
+                <h3 class="mbr-section-title mbr-fonts-style align-left mbr-bold mbr-white mbr-pt-1 mbr-pb-2 display-5"><?php print_r($_SESSION, TRUE) ?></h3>
                 <p class="mbr-text mbr-fonts-style align-left mbr-white mbr-py-1 display-4">С банком YourBank ваши финансы всегда под защитой нашей системы безопасности</p>             
             </div>
             

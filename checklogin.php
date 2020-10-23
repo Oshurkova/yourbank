@@ -19,10 +19,12 @@
         if(($login == $table_users) && ($password == $table_password) && ($table_type == 1)) {
             $_SESSION['id'] = $table_id; 
             header("location: indexadmin.php"); 
+            //exit;
         }
         if(($login == $table_users) && ($password == $table_password) && ($table_type == 2)) {
             $_SESSION['id'] = $table_id; 
-            header("location: index.html");
+            header("location: index.php");
+            //exit;
 	    }
 	    else {
             if (($password != $table_password) && ($login == $table_users)) {

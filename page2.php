@@ -1,6 +1,9 @@
 <?php
     session_start();
     $id = $_SESSION['id'];
+    if (!$id) {
+      header("location: login.php");
+    } 
     $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
     $query = "SELECT account, summ from clientpersone where id = $id";
     $table_account = "";

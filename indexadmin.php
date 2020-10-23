@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    $id = $_SESSION['id'];
+    if (!$id) {
+      header("location: login.php");
+    } 
+?>
 <!DOCTYPE html>
 <html  >
 <head>
@@ -45,6 +52,7 @@
                         Клиенты</a>
                 </li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="indexadmin.php">Добавить клиента</a></div>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="logout.php">Выйти</a></div>
         </div>
     </nav>
 </section>
