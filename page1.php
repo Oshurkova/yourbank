@@ -98,7 +98,11 @@
             <tbody>
             <?php
                 $conn = new mysqli('localhost', 'root', '', 'yourbank');
+<<<<<<< HEAD
+                $sql = "SELECT id, fio, account, createdate, summ from clientpersone";
+=======
                 $sql = "SELECT fio, account, createdate, summ from clientpersone";
+>>>>>>> 042a221df7667a33bb0b2b311186f08c3629ac94
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {	
@@ -107,6 +111,7 @@
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['account'] . "</td>";
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['createdate'] . "</td>";
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['summ'] . "</td>";
+                        Print '<td class="body-item mbr-fonts-style display-7"><a onclick="myFunction('.$row['id'].')">Удалить</a> </td>';
                         Print "</tr>";
                     }
 				        }
@@ -132,5 +137,15 @@
       </div>
     </div>
 </section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;"></a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  <script>
+			function myFunction(id)
+			{
+			var r=confirm("Подтвердите удаление");
+			if (r==true)
+			  {
+			  	window.location.assign("delete.php?id=" + id);
+			  }
+			}
+	</script>  
 </body>
 </html>
