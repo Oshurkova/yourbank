@@ -98,11 +98,7 @@
             <tbody>
             <?php
                 $conn = new mysqli('localhost', 'root', '', 'yourbank');
-<<<<<<< HEAD
                 $sql = "SELECT id, fio, account, createdate, summ from clientpersone";
-=======
-                $sql = "SELECT fio, account, createdate, summ from clientpersone";
->>>>>>> 042a221df7667a33bb0b2b311186f08c3629ac94
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {	
