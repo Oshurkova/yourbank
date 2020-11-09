@@ -2,7 +2,7 @@
     session_start();
     $login = $_POST['login'];
     $password = $_POST['password'];
-    $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
+    $mysqli = new mysqli('localhost', 'root', '', 'yourbank');
     $query = "SELECT id, login, password, type FROM users WHERE login = $login";
     $table_id = "";
     $table_users = "";
@@ -32,7 +32,7 @@
                 Print '<script>window.location.assign("login.php");</script>';	
             }
             if (($password != $table_password) && ($login != $table_users)) {
-                Print '<script>alert("Неверные данные");</script>'; 
+                Print '<script>alert("Неверные логин");</script>'; 
                 Print '<script>window.location.assign("login.php");</script>';
             }
         }

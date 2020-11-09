@@ -62,6 +62,9 @@
                         Клиенты</a>
                 </li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="indexadmin.php">Добавить клиента</a></div>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="adminoper.php">Операции</a></div>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="logout.php">Выйти</a></div>
+
         </div>
     </nav>
 </section>
@@ -94,7 +97,7 @@
             </thead>
             <tbody>
             <?php
-                $conn = new mysqli("localhost:3308", "root", "", "yourbank");
+                $conn = new mysqli('localhost', 'root', '', 'yourbank');
                 $sql = "SELECT fio, account, createdate, summ from clientpersone";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {

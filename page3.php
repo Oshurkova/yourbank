@@ -4,22 +4,38 @@
     if (!$id) {
       header("location: login.php");
     }
-    $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
-    $query = "SELECT max(t.date) date, t.value, t.credit FROM clientpersone r, entry t WHERE r.id = $id and t.debit = r.account and t.type = 1";
-    $table_date = "";
-    $table_value = "";
-    $table_credit = "";
+    $mysqli = new mysqli('localhost', 'root', '', 'yourbank');
+    $query = "SELECT account, summ from clientpersone where id = $id";
+    $table_account = "";
+    $table_summ = "";
     if ($result = mysqli_query($mysqli, $query)) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $table_date = $row['date']; 
-            $table_value = $row['value']; 
-            $table_credit = $row['credit'];
+            $table_account = $row['account']; 
+            $table_summ = $row['summ']; 
         }
       }
 ?>
 <!DOCTYPE html>
 <html amp >
 <head>
+    <!-- Site made with Mobirise Website Builder v5.1.4, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.1.4, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo1-121x119.png" type="image/x-icon">
+  <meta name="description" content="Web Builder Description">
+  
+  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/datatables/data-tables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <!-- Site made with Mobirise Website Builder v5.1.4, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,6 +60,7 @@
   
   
 </head>
+
 <body><amp-sidebar id="sidebar" class="cid-sd86FCnxa1" layout="nodisplay" side="right">
     <div class="builder-sidebar" id="builder-sidebar">
       <button on="tap:sidebar.close" class="close-sidebar">
@@ -54,11 +71,11 @@
       
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown mbr-column" data-app-modern-menu="true"><li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page3.php">Переводы</a>
+            <a class="nav-link link text-primary display-7" href="page3.php">История</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page4.php">Платежи</a>
-          </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
+            <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="logout.php">Выйти</a></div>
@@ -66,7 +83,7 @@
       </div>
   </amp-sidebar>
   
-  <section class="menu horizontal-menu cid-sd86FCnxa1" id="menu1-9">
+  <section class="menu horizontal-menu cid-sd86FCnxa1" id="menu1-e">
     
     <nav class="navbar navbar-dropdown navbar-fixed-top">
     <div class="menu-container mbr-jc-s container-fluid">
@@ -88,11 +105,11 @@
       
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown mbr-column" data-app-modern-menu="true"><li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page3.php">Переводы</a>
+            <a class="nav-link link text-primary display-7" href="page3.php">История</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page4.php">Платежи</a>
-          </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
+            <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="logout.php">Выйти</a></div>
@@ -112,50 +129,122 @@
   
     
 </section>
-
-<section class="content15 mbr-section cid-sd8hf4vPmc" id="content15-b">
+<section class="content15 mbr-section cid-sd8gnZZOyv" id="content15-8">
 
     
     
     <div class="container mbr-px-5">
         <div class="mbr-row mbr-jc-c">
-            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 md-pb">
+            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2 display-5">
-                    Дата последней расходной операции</h3>
-                <p class="mbr-text mbr-fonts-style align-center mbr-py-1 display-4">
-                  <?php echo $table_date ?>
-                </p>             
+                    Номер счёта</h3>
+                <p class="mbr-text mbr-fonts-style align-center mbr-py-1 display-4"><?php echo $table_account ?></p>             
             </div>
             
-            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 md-pb">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2 display-5">Сумма последней расходной операции</h3>
+            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 last-child">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2 display-5">
+                    Баланс на счету</h3>
                 <p class="mbr-text mbr-fonts-style align-center mbr-py-1 display-4">
-                <?php echo $table_value ?>
+                  <?php echo $table_summ ?>
                 </p> 
             </div>
         
-            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 last-child">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2 display-5">
-                    Назначение перевода</h3>
-                <p class="mbr-text mbr-fonts-style align-center mbr-py-1 display-4">
-                <br><?php echo $table_credit ?>
-                </p>
-            </div>
+            
+        
+            
         </div>
     </div>
 </section>
+<section class="content15 mbr-section cid-sd8hf4vPmc" id="content15-b">
 
-<section class="mbr-section content5 cid-sd8hSKKpAD" id="content5-c">
 
+      <div style="text-align: center;" class="row justify-content-center align-items-center h-100">
+        
     
+    <div class="container mbr-px-5">
+    
+<form>
+  <div class="form-group">
+    <label for="inputDate">Введите начальную дату:</label>
+    <br>
+    <br>
+    <input id = "bdate" type="date" class="form-control">
+  </div>
 
-    <div class="container">
-        <div class="mbr-row mbr-jc-c">
-            <div class="mbr-section-btn mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-8 align-center"><a class="btn btn-primary display-4" href="https://mobiri.se">Скачать выписку</a></div>
-        </div>
+<br>
+<br>
+
+  <div class="form-group">
+    <label for="inputDate">Введите конечную дату:</label>
+    <br>
+<br>
+    <input id = "edate" type="date" class="form-control">
+  </div>
+  <br>
+<br>   
+
+</form> 
+<button class = "btn " type="button" id="btn1">Сформировать выписку</button>  
     </div>
+   
+    <div style="text-align: center;" class="row justify-content-center align-items-center h-100">
+ 
+</div>
+</section>
 
-  
-  
+<div class="container scroll">
+
+          <table id='result_table' class="table isSearch" cellspacing="0" data-empty="No matching records found"> 
+<thead>
+              <tr class="table-heads ">  
+              <th class="head-item mbr-fonts-style display-7">
+                      ДАТА</th><th class="head-item mbr-fonts-style display-7">
+                      ДЕБЕТ</th><th class="head-item mbr-fonts-style display-7">
+                      КРЕДИТ</th><th class="head-item mbr-fonts-style display-7">
+                      СУММА</th></tr>
+            </thead>
+
+<tbody>
+<?php
+    $conn = new mysqli('localhost', 'root', '', 'yourbank');
+    $sql = "SELECT date, debit, credit, value from entry where id = $id";
+    $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {	
+                        Print  "<tr>";		
+                        Print  "<td>". $row['date'] . "</td>";
+                        Print  "<td>". $row['debit'] . "</td>";
+                        Print  "<td>". $row['credit'] . "</td>";
+                        Print  "<td>". $row['value'] . "</td>";
+                        Print  "</tr>";
+                    }
+				        }
+            ?>
+</tbody>
+</table>
+        </div>
+
+        <script type="text/javascript">
+$(document).ready(function(){
+	$('#btn1').click(function(){ 
+    var bdate = document.getElementById('bdate').value;
+    var edate = document.getElementById('edate').value;
+    console.log(bdate);
+      $.ajax({
+        url: 'updatepage3.php',
+        type: 'post',
+        dataType: 'json',
+        data: {bdate: bdate, edate: edate},
+        success: function(output_string){
+                $('#result_table tbody').empty();
+                $('#result_table').append(output_string);
+            }
+        }); 
+    
+	});
+});
+</script>
+       
+
 </body>
 </html>

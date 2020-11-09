@@ -6,7 +6,7 @@
     } 
 ?>
 <!DOCTYPE html>
-<html  >
+<html amp >
 <head>
 
   <!-- Site made with Mobirise Website Builder v5.1.4, https://mobirise.com -->
@@ -61,77 +61,60 @@
     </nav>
 </section>
 <section class="features1 cid-sdcaqmTLmz" id="features1-6">
-    <div class="container">
-        <div class="media-container-row">
-
-            <div class="card p-3 col-12 col-md-6">
-                <div class="card-img pb-3">
-                    <span class="mbr-iconfont mobi-mbri-key mobi-mbri"></span>
-                </div>
-                <div class="card-box">
-                    <h4 class="card-title py-3 mbr-fonts-style display-5">
-                        Внимание</h4>
-                    <p class="mbr-text mbr-fonts-style display-7">После добавления клиента, ему необходимо сообщить данные для авторизации</p>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <section class="content15 mbr-section cid-sd8hf4vPmc" id="content15-b">
 <div id='result'>
 
 </div>
-<div style="text-align: center;" class="row justify-content-center align-items-center h-100">
+
+      <div style="text-align: center;">
         
     
-        <div class="container mbr-px-5">
+    <div class="container mbr-px-5">
+
 <form>
 <br>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">ФИО</label>
-    <input id="fio" class="form-control" id="exampleFormControlInput1" placeholder="Фамилия Имя Отчество">
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Выберите способ перевода</label>
+    <select id="method" class="form-control" id="exampleFormControlSelect1">
+      <option value="1">По номеру телефона</option>
+      <option value="2">По номеру счёта</option>
+    </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Имя пользователя</label>
-    <input id="login" class="form-control" id="exampleFormControlInput1">
+    <label for="exampleFormControlInput1">Введите индентификатор плательщика</label>
+    <input id="idcl" type="number" class="form-control" id="exampleFormControlInput1" placeholder="id клиента">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Пароль</label>
-    <input id="password" class="form-control" id="exampleFormControlInput1" placeholder="От 3 до 15 символов">
+    <label for="exampleFormControlInput1">Введите необходимые реквизиты</label>
+    <input id="address" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Номер телефона без 8 либо номер короткого счёта">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Счёт</label>
-    <input id="account" class="form-control" id="exampleFormControlInput1">
+    <label for="exampleFormControlInput1">Сумма</label>
+    <input id="value" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Не более 20 тыс. рублей">
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Телефон</label>
-    <input id="phone" class="form-control" id="exampleFormControlInput1" placeholder="9** *** ** **">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Сумма на счету</label>
-    <input id="summ" class="form-control" id="exampleFormControlInput1" placeholder="Сумма, которую внёс клиент на счёт">
-  </div>
-  
   
 </form>
-<button id="btn1" class="btn btn-primary">Создать клиента</button> 
+<button id="btn1" class="btn btn-primary">Перевести</button> 
+<br>
+<br>
 </div>
-</div>
+
+
 </section>
-    <script type="text/javascript">
+
+<script type="text/javascript">
 $(document).ready(function(){
 	$('#btn1').click(function(){ 
-    var fio = document.getElementById('fio').value;
-    var login = document.getElementById('login').value;
-    var password = document.getElementById('password').value;
-    var account = document.getElementById('account').value;
-    var phone = document.getElementById('phone').value;
-    var summ = document.getElementById('summ').value;
+    var method = document.getElementById('method').value;
+    var address = document.getElementById('address').value;
+    var value = document.getElementById('value').value;
+    var idcl = document.getElementById('idcl').value;
       $.ajax({
-        url: 'updateadmin.php',
+        url: 'adminoperupdate.php',
         type: 'post',
         dataType: 'json',
-        data: {fio: fio, login: login, password: password, account: account, phone: phone, summ: summ},
+        data: {method: method, address: address, value: value, idcl: idcl},
         success: function(output_string){
                 $('#result').empty();
                 $('#result').append(output_string);
@@ -140,8 +123,8 @@ $(document).ready(function(){
             error: function () {
               console.log(222222);
               $('#result').empty();
-              $('#result').append('<div class="alert alert-danger" role="alert">Возникла ошибка при создании клиента.</div>');
-      }
+              $('#result').append('<div class="alert alert-danger" role="alert">Неверный данные для перевода.</div>');
+      },
         }); 
         
     

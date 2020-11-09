@@ -4,7 +4,7 @@
     if (!$id) {
       header("location: login.php");
     } 
-    $mysqli = new mysqli("localhost:3308", "root", "", "yourbank");
+    $mysqli = new mysqli('localhost', 'root', '', 'yourbank');
     $query = "SELECT account, summ from clientpersone where id = $id";
     $table_account = "";
     $table_summ = "";
@@ -53,11 +53,11 @@
       
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown mbr-column" data-app-modern-menu="true"><li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page3.php">Переводы</a>
+            <a class="nav-link link text-primary display-7" href="page3.php">История</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page4.php">Платежи</a>
-          </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
+            <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="logout.php">Выйти</a></div>
@@ -87,10 +87,10 @@
       
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown mbr-column" data-app-modern-menu="true"><li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page3.php">Переводы</a>
+            <a class="nav-link link text-primary display-7" href="page3.php">История</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page4.php">Платежи</a>
+            <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
           </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->

@@ -31,20 +31,21 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `clientpersone`;
 CREATE TABLE IF NOT EXISTS `clientpersone` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fio` varchar(100) NOT NULL,
-  `account` int(11) NOT NULL,
-  `createdate` date NOT NULL,
-  `summ` int(11) NOT NULL,
+  `fio` varchar(100),
+  `account` int(11),
+  `createdate` date,
+  `summ` int(11),
+  `phone` varchar(12),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Дамп данных таблицы `clientpersone`
 --
 
-INSERT INTO `clientpersone` (`id`, `fio`, `account`, `createdate`, `summ`) VALUES
-(2, 'Ошуркова Татьяна Александровна', 2032435, '2020-10-12', 0),
-(9, 'Дибривный Тимофей Константинович', 3452674, '2020-10-18', 0);
+INSERT INTO `clientpersone` (`id`, `fio`, `account`, `createdate`, `summ`, `phone`) VALUES
+(2, 'Ошуркова Татьяна Александровна', 2032435, '2020-10-12', 0, '9193170533'),
+(9, 'Дибривный Тимофей Константинович', 3452674, '2020-10-18', 0, '9195630533');
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `entry` (
   `credit` int(11) NOT NULL,
   `value` int(11) NOT NULL,
   `type` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Дамп данных таблицы `entry`
@@ -78,11 +79,11 @@ INSERT INTO `entry` (`date`, `debit`, `credit`, `value`, `type`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(10) NOT NULL,
-  `password` varchar(10) NOT NULL,
-  `type` int(11) NOT NULL,
+  `login` varchar(10),
+  `password` varchar(10),
+  `type` int(11),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Дамп данных таблицы `users`

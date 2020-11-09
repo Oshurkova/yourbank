@@ -13,28 +13,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.1.4, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo1-121x119.png" type="image/x-icon">
+  <meta name="description" content="Web Builder Description">
+  
+  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/datatables/data-tables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <!-- Site made with Mobirise Website Builder v5.1.4, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.1.4, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo1.png" type="image/x-icon">
   <meta name="description" content="">
   <meta name="amp-script-src" content="">
   <link rel="stylesheet" href="customstyle.css">
+  <title>Operations</title>
   
-  <title>Home</title>
-  
-<link rel="canonical" href="./">
+<link rel="canonical" href="page3.php">
  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
 <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
- 
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic&display=swap" rel="stylesheet">
+
  
   <script async  src="https://cdn.ampproject.org/v0.js"></script>
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
   
   
-  
+ 
 </head>
 <body><amp-sidebar id="sidebar" class="cid-sd86FCnxa1" layout="nodisplay" side="right">
     <div class="builder-sidebar" id="builder-sidebar">
@@ -46,11 +60,11 @@
       
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown mbr-column" data-app-modern-menu="true"><li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page3.php">Переводы</a>
+            <a class="nav-link link text-primary display-7" href="page3.php">История</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page4.php">Платежи</a>
-          </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
+            <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="logout.php">Выйти</a></div>
@@ -80,11 +94,11 @@
       
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown mbr-column" data-app-modern-menu="true"><li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page3.php">Переводы</a>
+            <a class="nav-link link text-primary display-7" href="page3.php">История</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link text-primary display-7" href="page4.php">Платежи</a>
-          </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page2.php">Баланс</a></li></ul>
+            <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-md mbr-bold btn-white display-7" href="index.php">Выйти</a></div>
@@ -112,7 +126,7 @@
     <div class="container mbr-px-5">
         <div class="mbr-row mbr-jc-c">
             <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-3 md-pb">
-                <h3 class="mbr-section-title mbr-fonts-style align-left mbr-bold mbr-white mbr-pt-1 mbr-pb-2 display-5"><?php print_r($_SESSION, TRUE) ?></h3>
+                <h3 class="mbr-section-title mbr-fonts-style align-left mbr-bold mbr-white mbr-pt-1 mbr-pb-2 display-5">Безопасность<?php print_r($_SESSION, TRUE) ?></h3>
                 <p class="mbr-text mbr-fonts-style align-left mbr-white mbr-py-1 display-4">С банком YourBank ваши финансы всегда под защитой нашей системы безопасности</p>             
             </div>
             
