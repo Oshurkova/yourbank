@@ -64,6 +64,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li><li class="nav-item">
+            <a class="nav-link link text-primary display-7" href="account.php">Личный кабинет</a>
           </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
@@ -98,6 +100,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li><li class="nav-item">
+            <a class="nav-link link text-primary display-7" href="account.php">Личный кабинет</a>
           </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->

@@ -1,13 +1,16 @@
 <?php
 
-    $output_string = '<div class="alert alert-danger" role="alert">Возникла ошибка при создании клиента.</div>';
-
+    
 	$fio = $_POST['fio'];
     $login = $_POST['login'];
     $password = $_POST['password'];
     $phone = $_POST['phone'];
     $summ = intval($_POST['summ']);
     $account = intval($_POST['account']);
+    $method = intval($_POST['method']);
+    if ($method == 1) {
+        $output_string = '<div class="alert alert-danger" role="alert">Возникла ошибка при создании клиента.</div>';
+    
     $check = 0;
     if (strlen($password) < 3    or strlen($password) > 15) { 
     
@@ -26,7 +29,15 @@
             $check = 1;
         }
     } 
- 
+    $mysqli = new mysqli('localhost', 'root', '', 'yourbank');
+    $query = "SELECT account FROM clientpersone WHERE account='$account'";
+    
+    if ($result = mysqli_query($mysqli, $query)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $output_string = '<div class="alert alert-danger" role="alert">Данный счёт уже сущетсвует.</div>';
+            $check = 1;
+        }
+    } 
     
    
    
@@ -41,7 +52,9 @@
 
             }
         }
-        
+    } else {
+        $output_string = '<div class="alert alert-danger" role="alert">Данная функция находится в разработке.</div>';
+    }
         
 
          

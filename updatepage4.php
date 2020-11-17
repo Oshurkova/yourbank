@@ -5,15 +5,22 @@
     $value = intval($_POST['value']);
     $text = $_POST['text'];
     $conn = new mysqli('localhost', 'root', '', 'yourbank');
-    $query = "SELECT account, summ from clientpersone where id = $id";
+    $query = "SELECT account, summ, arest from clientpersone where id = $id";
     $table_account = 0;
     $summ = 0;
+    $arest = '';
     if ($result = mysqli_query($conn, $query)) {
         while ($row = mysqli_fetch_assoc($result)) {
             $table_account = $row['account']; 
             $summ = $row['summ']; 
+            $arest = $row['arest'];
         }
     }
+    if ($arest == 1) {
+        $output_string = '<div class="alert alert-danger" role="alert">Действует арест на счету, перевод невозможен.</div>';
+    } else {
+
+    
     $output_string = '<div class="alert alert-danger" role="alert">Неверный данные для перевода.</div>';
     if ($method == 2) {
     $address = intval($_POST['address']);
@@ -55,7 +62,7 @@ if ($method == 1) {
             } 
         } 
     }
-}
+}}
 
 echo json_encode($output_string);
     

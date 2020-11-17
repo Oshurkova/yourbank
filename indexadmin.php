@@ -54,8 +54,9 @@
                     <a class="nav-link link text-black text-primary display-4" href="page1.php">
                         Клиенты</a>
                 </li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="indexadmin.php">Добавить клиента</a></div>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="indexadmin.php">Добавить клиента</a></div>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="adminoper.php">Операции</a></div>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="arest.php">Арест</a></div>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="logout.php">Выйти</a></div>
         </div>
     </nav>
@@ -87,6 +88,13 @@
         <div class="container mbr-px-5">
 <form>
 <br>
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Тип операции</label>
+    <select id="method" class="form-control" id="exampleFormControlSelect1">
+      <option value="1">Добавление клиента</option>
+      <option value="2">Обновление данных клиента</option>
+    </select>
+  </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">ФИО</label>
     <input id="fio" class="form-control" id="exampleFormControlInput1" placeholder="Фамилия Имя Отчество">
@@ -101,7 +109,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Счёт</label>
-    <input id="account" class="form-control" id="exampleFormControlInput1">
+    <input type="number" oninput="validity.valid||(value='');" id="account" class="form-control" id="exampleFormControlInput1">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Телефон</label>
@@ -109,7 +117,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Сумма на счету</label>
-    <input id="summ" class="form-control" id="exampleFormControlInput1" placeholder="Сумма, которую внёс клиент на счёт">
+    <input type="number" oninput="validity.valid||(value='');" id="summ" class="form-control" id="exampleFormControlInput1" placeholder="Сумма, которую внёс клиент на счёт">
   </div>
   
   
@@ -121,6 +129,7 @@
     <script type="text/javascript">
 $(document).ready(function(){
 	$('#btn1').click(function(){ 
+    var method = document.getElementById('method').value;
     var fio = document.getElementById('fio').value;
     var login = document.getElementById('login').value;
     var password = document.getElementById('password').value;
@@ -131,7 +140,7 @@ $(document).ready(function(){
         url: 'updateadmin.php',
         type: 'post',
         dataType: 'json',
-        data: {fio: fio, login: login, password: password, account: account, phone: phone, summ: summ},
+        data: {method: method, fio: fio, login: login, password: password, account: account, phone: phone, summ: summ},
         success: function(output_string){
                 $('#result').empty();
                 $('#result').append(output_string);

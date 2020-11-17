@@ -76,27 +76,19 @@
 <form>
 <br>
 <div class="form-group">
-    <label for="exampleFormControlSelect1">Выберите способ перевода</label>
+    <label for="exampleFormControlSelect1">Выберите тип операции</label>
     <select id="method" class="form-control" id="exampleFormControlSelect1">
-      <option value="1">По номеру телефона</option>
-      <option value="2">По номеру счёта</option>
+      <option value="1">Арест</option>
+      <option value="2">Снятие ареста</option>
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Введите счёт плательщика</label>
-    <input id="idcl" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Счёт клиента">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Введите необходимые реквизиты</label>
-    <input id="address" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Номер телефона без 8 либо номер короткого счёта">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Сумма</label>
-    <input id="value" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Не более 20 тыс. рублей">
+    <label for="exampleFormControlInput1">Введите счёт клиента</label>
+    <input id="idcl" type="number" oninput="validity.valid||(value='');" class="form-control" id="exampleFormControlInput1" placeholder="Счёт клиента">
   </div>
   
 </form>
-<button id="btn1" class="btn btn-primary">Перевести</button> 
+<button id="btn1" class="btn btn-primary">Выполнить</button> 
 <br>
 <br>
 </div>
@@ -107,15 +99,13 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#btn1').click(function(){ 
-    var method = document.getElementById('method').value;
-    var address = document.getElementById('address').value;
-    var value = document.getElementById('value').value;
     var idcl = document.getElementById('idcl').value;
+    var method = document.getElementById('method').value;
       $.ajax({
-        url: 'adminoperupdate.php',
+        url: 'arestupdate.php',
         type: 'post',
         dataType: 'json',
-        data: {method: method, address: address, value: value, idcl: idcl},
+        data: {method: method, idcl: idcl},
         success: function(output_string){
                 $('#result').empty();
                 $('#result').append(output_string);
@@ -124,7 +114,7 @@ $(document).ready(function(){
             error: function () {
               console.log(222222);
               $('#result').empty();
-              $('#result').append('<div class="alert alert-danger" role="alert">Неверный данные для перевода.</div>');
+              $('#result').append('<div class="alert alert-danger" role="alert">Ошибка блокировки.</div>');
       },
         }); 
         

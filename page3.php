@@ -75,6 +75,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li><li class="nav-item">
+            <a class="nav-link link text-primary display-7" href="account.php">Личный кабинет</a>
           </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
@@ -109,6 +111,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link link text-primary display-7" href="page4.php">Переводы</a>
+          </li><li class="nav-item">
+            <a class="nav-link link text-primary display-7" href="account.php">Личный кабинет</a>
           </li></ul>
         <!-- NAVBAR ITEMS END -->
         <!-- SHOW BUTTON -->
@@ -191,35 +195,82 @@
  
 </div>
 </section>
+<section class="section-table cid-sdcbQgx3HQ" id="table1-9">
+  <div class="container container-table">
+      <div class="table-wrapper">
+        <div class="container">
+          <div class="row search">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div class="dataTables_filter">
+                  <label class="searchInfo mbr-fonts-style display-7">Поиск:</label>
+                  <input class="form-control input-sm" disabled="">
+                </div>
+            </div>
+          </div>
+        </div>
 
-<div class="container scroll">
-
-          <table id='result_table' class="table isSearch" cellspacing="0" data-empty="No matching records found"> 
-<thead>
+        <div class="container scroll">
+          <table class="table isSearch" cellspacing="0" data-empty="No matching records found">
+            <thead>
               <tr class="table-heads ">  
               <th class="head-item mbr-fonts-style display-7">
                       ДАТА</th><th class="head-item mbr-fonts-style display-7">
                       ДЕБЕТ</th><th class="head-item mbr-fonts-style display-7">
                       КРЕДИТ</th><th class="head-item mbr-fonts-style display-7">
                       СУММА</th></tr>
-            </thead>
 
-<tbody>
-<?php
-    $conn = new mysqli('localhost', 'root', '', 'yourbank');
-    $sql = "SELECT date, debit, credit, value from entry where id = $id";
-    $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {	
-                        Print  "<tr>";		
-                        Print  "<td>". $row['date'] . "</td>";
-                        Print  "<td>". $row['debit'] . "</td>";
-                        Print  "<td>". $row['credit'] . "</td>";
-                        Print  "<td>". $row['value'] . "</td>";
-                        Print  "</tr>";
-                    }
-				        }
+                      </tr>
+            </thead>
+            <tbody>
+            <?php
+$id = $_SESSION['id'];
+$conn = new mysqli('localhost', 'root', '', 'yourbank');
+$query = "SELECT account from clientpersone where id = $id";
+$table_account = 0;
+if ($result = mysqli_query($conn, $query)) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $table_account = $row['account']; 
+    }
+}
+$conn = new mysqli('localhost', 'root', '', 'yourbank');
+$sql = "SELECT date, debit, credit, value from entry where debit = $table_account or credit = $table_account";
+$result = $conn->query($sql);
+$output_string = '';
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {	
+
+                  Print '<tr>';
+                  Print '<td>'.$row['date'].'</td>';
+                  Print '<td>'.$row['debit'].'</td>';
+                  Print '<td>'.$row['credit'].'</td>';
+                  Print '<td>'.$row['value'].'</td>';
+                  Print '</tr>';
+                
+            }
+        }
             ?>
+            </tbody>
+          </table>
+        </div>
+        <div class="container table-info-container">
+          <div class="row info">
+            <div class="col-md-6">
+              <div class="dataTables_info mbr-fonts-style display-7">
+                <span class="infoBefore">Отражено</span>
+                <span class="inactive infoRows"></span>
+                <span class="infoAfter">записи</span>
+                <span class="infoFilteredBefore">(фильтр на</span>
+                <span class="inactive infoRows"></span>
+                <span class="infoFilteredAfter"> записи)</span>
+              </div>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;"></a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
 </tbody>
 </table>
         </div>
@@ -245,6 +296,7 @@ $(document).ready(function(){
 });
 </script>
        
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;"></a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
 
 </body>
 </html>

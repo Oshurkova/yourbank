@@ -3,7 +3,28 @@
     $id = $_SESSION['id'];
     if (!$id) {
       header("location: login.php");
-    } 
+    }
+    $mysqli = new mysqli('localhost', 'root', '', 'yourbank');
+    $query = "SELECT fio, phone, arest, account, summ from clientpersone where id = $id";
+    $fio = "";
+    $phone = "";
+    $arest = 0;
+    $account = 0;
+    $summ = 0;
+    if ($result = mysqli_query($mysqli, $query)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $fio = $row['fio'];
+            $phone = $row['phone']; 
+            $arest = intval($row['arest']); 
+            $account = intval($row['account']); 
+            $summ = intval($row['summ']); 
+        }
+      }
+      if ($arest == 1) {
+        $arest = 'На счету действует арест';
+      } else {
+        $arest = 'Арест отсутствует';
+      }
 ?>
 <!DOCTYPE html>
 <html amp >
@@ -123,42 +144,35 @@
     
 </section>
 
-<section class="content15 mbr-section cid-sd8hf4vPmc" id="content15-b">
-<div id='result'>
+<section margin-left="20px" id="content15-b">
+
+
+
+
+<div style="margin-left:45px;"> 
+<br>
+<h2 style="color: #3273a8; font-weight: bold;" class="mbr-section-title mbr-fonts-style align-left pb-3 display-2" >Фамилия Имя Отчество</h2>
+<br>      
+
+<h3 class="mbr-section-subtitle mbr-fonts-style align-left pb-5 mbr-light display-5"><?php echo $fio ?></h3>
+
+<h2 style="color: #3273a8; font-weight: bold;" class="mbr-section-title mbr-fonts-style align-left pb-3 display-2">Номер телефона</h2>
+<br>      
+<h3 class="mbr-section-subtitle mbr-fonts-style align-left pb-5 mbr-light display-5"><?php echo $phone ?></h3>
+
+<h2 style="color: #3273a8; font-weight: bold;" class="mbr-section-title mbr-fonts-style align-left pb-3 display-2">Статус ареста</h2>
+<br>      
+<h3 class="mbr-section-subtitle mbr-fonts-style align-left pb-5 mbr-light display-5"><?php echo $arest ?></h3>
+
+<h2 style="color: #3273a8; font-weight: bold;" class="mbr-section-title mbr-fonts-style align-left pb-3 display-2">Сумма на счету</h2>
+<br>      
+<h3 class="mbr-section-subtitle mbr-fonts-style align-left pb-5 mbr-light display-5"><?php echo $summ ?></h3>
+
+<br>
+<br>
+
 
 </div>
-
-      <div style="text-align: center;" class="row justify-content-center align-items-center h-100">
-        
-    
-    <div class="container mbr-px-5">
-<form>
-<div class="form-group">
-    <label for="exampleFormControlSelect1">Выберите способ перевода</label>
-    <select id="method" class="form-control" id="exampleFormControlSelect1">
-      <option value="1">По номеру телефона</option>
-      <option value="2">По номеру счёта</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Введите необходимые реквизиты</label>
-    <input id="address" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Номер телефона без 8 либо номер короткого счёта">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Сумма</label>
-    <input id="value" type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="exampleFormControlInput1" placeholder="Не более 20 тыс. рублей">
-  </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Сообщение для перевода</label>
-    <textarea id="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  
-</form>
-<button id="btn1" class="btn btn-primary">Перевести</button> 
-</div>
-
-
 </section>
 
 <script type="text/javascript">

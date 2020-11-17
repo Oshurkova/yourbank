@@ -4,7 +4,7 @@
     $method = intval($_POST['method']);
     $value = intval($_POST['value']);
     $conn = new mysqli('localhost', 'root', '', 'yourbank');
-    $query = "SELECT account, summ from clientpersone where id = $id";
+    $query = "SELECT account, summ from clientpersone where account = $id";
     $table_account = 0;
     $summ = 0;
     if ($result = mysqli_query($conn, $query)) {
@@ -25,7 +25,7 @@
         if (($check == $address) && ($summ >= $value)) {
             $date = date("Y-m-d"); 
             $sql = "UPDATE clientpersone SET SUMM = SUMM + $value WHERE ACCOUNT = $address";
-            $sqll = "UPDATE clientpersone SET SUMM = SUMM - $value WHERE id = $id";
+            $sqll = "UPDATE clientpersone SET SUMM = SUMM - $value WHERE account = $id";
             $sqlll = "INSERT INTO entry (date, debit, credit, value, type, id) VALUES ('$date', '$table_account', '$address', '$value', 1, $id)";   
 
             if (($conn->query($sql) === TRUE) && ($conn->query($sqll) === TRUE) && ($conn->query($sqlll) === TRUE)) {
@@ -47,7 +47,7 @@ if ($method == 1) {
         
         if (($check == $address) && ($summ >= $value)) {
             $sql = "UPDATE clientpersone SET SUMM = SUMM + $value WHERE PHONE = $address";
-            $sqll = "UPDATE clientpersone SET SUMM = SUMM - $value WHERE id = $id";
+            $sqll = "UPDATE clientpersone SET SUMM = SUMM - $value WHERE account = $id";
             $sqlll = "INSERT INTO entry (date, debit, credit, value, type, id) VALUES ('$date', '$table_account', '$table_credit', '$value', 1, $id)";   
             if (($conn->query($sql) === TRUE) && ($conn->query($sqll) === TRUE) && ($conn->query($sqlll) === TRUE) ) {
                 $output_string = '<div class="alert alert-success" role="alert">Перевод успешно выполнен.</div>';

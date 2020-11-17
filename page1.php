@@ -33,40 +33,41 @@
 </head>
 <body>
   
-  <section class="menu cid-sdc9IJYSgP" once="menu" id="menu2-8">
+  
+<section class="menu cid-sdc9IJYSgP" once="menu" id="menu2-8">
 
     
 
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-          <div class="navbar-brand">
-              <span class="navbar-logo">
-                  <a href="https://mobiri.se">
-                      <img src="assets/images/logo1-121x119.png" alt="Mobirise" style="height: 3.8rem;">
-                  </a>
-              </span>
-              
-          </div>
+<nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+    <div class="menu-logo">
+      <div class="navbar-brand">
+          <span class="navbar-logo">
+              <a href="https://mobiri.se">
+                  <img src="assets/images/logo1-121x119.png" alt="Mobirise" style="height: 3.8rem;">
+              </a>
+          </span>
+          
       </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-black text-primary display-4" href="page1.php">
-                        Клиенты</a>
-                </li></ul>
+  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                <a class="nav-link link text-black text-primary display-4" href="page1.php">
+                    Клиенты</a>
+            </li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="indexadmin.php">Добавить клиента</a></div>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="adminoper.php">Операции</a></div>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="arest.php">Арест</a></div>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="logout.php">Выйти</a></div>
-
-        </div>
-    </nav>
+    </div>
+</nav>
 </section>
 <section class="section-table cid-sdcbQgx3HQ" id="table1-9">
   <div class="container container-table">
@@ -92,19 +93,23 @@
               <th class="head-item mbr-fonts-style display-7">
                       ФИО</th><th class="head-item mbr-fonts-style display-7">
                       СЧЁТ</th><th class="head-item mbr-fonts-style display-7">
+                      НОМЕР ТЕЛЕФОНА</th><th class="head-item mbr-fonts-style display-7">
                       ДАТА СОЗДАНИЯ</th><th class="head-item mbr-fonts-style display-7">
-                      СУММА</th></tr>
+                      СУММА</th><th ></th>
+
+                      </tr>
             </thead>
             <tbody>
             <?php
                 $conn = new mysqli('localhost', 'root', '', 'yourbank');
-                $sql = "SELECT id, fio, account, createdate, summ from clientpersone";
+                $sql = "SELECT id, fio, account, phone, createdate, summ from clientpersone";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {	
                         Print "<tr>";		
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['fio'] . "</td>";
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['account'] . "</td>";
+                        Print '<td class="body-item mbr-fonts-style display-7">'. $row['phone'] . "</td>";
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['createdate'] . "</td>";
                         Print '<td class="body-item mbr-fonts-style display-7">'. $row['summ'] . "</td>";
                         Print '<td class="body-item mbr-fonts-style display-7"><a onclick="myFunction('.$row['id'].')">Удалить</a> </td>';
@@ -133,15 +138,5 @@
       </div>
     </div>
 </section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;"></a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
-  <script>
-			function myFunction(id)
-			{
-			var r=confirm("Подтвердите удаление");
-			if (r==true)
-			  {
-			  	window.location.assign("delete.php?id=" + id);
-			  }
-			}
-	</script>  
 </body>
-</html>
+</html>я
