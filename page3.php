@@ -196,8 +196,8 @@
 </div>
 </section>
 <section class="section-table cid-sdcbQgx3HQ" id="table1-9">
-  <div class="container container-table">
-      <div class="table-wrapper">
+ 
+
         <div class="container">
           <div class="row search">
             <div class="col-md-6"></div>
@@ -211,7 +211,7 @@
         </div>
 
         <div class="container scroll">
-          <table class="table isSearch" cellspacing="0" data-empty="No matching records found">
+          <table id='result_table' class="table isSearch" cellspacing="0" data-empty="No matching records found">
             <thead>
               <tr class="table-heads ">  
               <th class="head-item mbr-fonts-style display-7">
@@ -268,8 +268,7 @@ $output_string = '';
             <div class="col-md-6"></div>
           </div>
         </div>
-      </div>
-    </div>
+   
 </section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;"></a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
 </tbody>
 </table>
